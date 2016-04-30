@@ -13,12 +13,33 @@ namespace BBS.SQLServerDAL
 	{
 		public BBSUsers()
 		{}
+        
 		#region  Method
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public int GetMaxId()
+        ///登录验证
+        public int login(string username,string userpwd)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 Uid ");
+            strSql.Append(" from BBSUsers ");
+            strSql.Append(" where Uname='" + username + "' and UPassword='" + userpwd + "'");
+
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return -1;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+
+        }
+
+        /// <summary>
+        /// 得到最大ID
+        /// </summary>
+        public int GetMaxId()
 		{
 		return DbHelperSQL.GetMaxID("Uid", "BBSUsers"); 
 		}
@@ -397,13 +418,19 @@ namespace BBS.SQLServerDAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
-		/*
+        int IBBSUsers.login(string username, string userpwd)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
 		*/
 
-		#endregion  Method
-		#region  MethodEx
+        #endregion  Method
+        #region  MethodEx
 
-		#endregion  MethodEx
-	}
+        #endregion  MethodEx
+    }
+
 }
 

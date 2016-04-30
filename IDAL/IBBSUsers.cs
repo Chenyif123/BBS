@@ -7,11 +7,19 @@ namespace BBS.IDAL
 	/// </summary>
 	public interface IBBSUsers
 	{
-		#region  成员方法
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		int GetMaxId();
+
+        #region  成员方法
+        /// <summary>
+        /// 登录验证
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="userpwd"></param>
+        /// <returns></returns>
+        int login(string username,string userpwd);
+        /// <summary>
+        /// 得到最大ID
+        /// </summary>
+        int GetMaxId();
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>

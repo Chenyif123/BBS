@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="js/login.js"></script>
+
+	<title>战争学院议事厅-登录</title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			background: url(images/beijing1.jpg) no-repeat;
+			background-size: cover;
+		}
+
+		nav{
+			width: 100%;
+			height: 80px;
+			padding: 5px 0px;
+			margin-bottom: 50px;
+			border-bottom: 2px solid white;
+			background: rgba(0,0,0,0.4);
+			filter:Alpha(opacity=40);
+		}
+		nav>img{
+			position: relative;
+		}
+		#center {
+			display: -webkit-box;
+			box-orient: horizontal;
+		}
+		#box1 {
+			-webkit-box-flex: 1;
+		}
+		#box2 {
+			width: 1280px;
+		}
+		#box3 {
+			-webkit-box-flex: 1;
+		}
+		#myleft{
+			width: 53%;
+			float: left;
+		}
+		#myleft>#lefttop{
+			width: 100%;
+			background: rgba(100,0,250,0.4);
+			filter:Alpha(opacity=40); 
+			padding: 10px 0px;
+			text-align: center;
+		}
+		#myleft>#lefttop a{
+			position: relative;
+		}
+		#myleft>#lefttop a>img{
+			padding: 2px;
+		}
+		#myleft>#leftbottom{
+			margin-top: 14px;
+			width: 100%;
+			height: 73px;
+			background: rgba(255,255,255,0.4);
+			filter:Alpha(opacity=40); 
+		}
+		#myleft>#leftbottom>p{
+			position: relative;
+			color: white;
+			padding: 10px 13px;
+			text-align: right;
+			line-height: 25px;
+		}
+
+		#myright{
+			width: 47%;
+			float: left;
+		}
+		#myright1{
+			width: 47%;
+			float: left;
+		}
+		#myright1 #login #righttop{
+			border-bottom:1px solid black;
+			background: #333;
+			height: 86px;
+			line-height: 86px;
+			color: white;
+		}
+		#login{
+			width: 400px;
+			height: auto;
+			background: white;
+			margin: 0px auto;
+			text-align: center;
+		}
+		#login label{
+			font-size: 18px;
+		}
+		#login input[type="text"],input[type="password"]{
+			margin-top: 30px;
+			height: 30px;
+			width: 200px;
+			font-size: 16px;
+		}
+		#login input[type="submit"]{
+			margin-top: 30px;
+			height: 40px;
+			width: 285px;
+			font-size: 20px;
+			color: white;
+			background: #2179f4;
+		}
+		#login p{
+			 font-size: 12px;
+		}
+		#login p a{
+			text-decoration: none;
+			color: #666;
+		}
+		#login #zcyh{
+			width: 100%;
+			height: 76px;
+			background: #f1f1f1;
+		}
+		#login #zcyh>a{
+			display: block;
+			width: 180px;
+			height: 30px;
+			line-height: 30px;
+			color: #670997;
+			text-decoration: none;
+			font-weight: bolder;
+			font-size: 14px;
+			background: #e1e1e1;
+			float: left;
+			margin-left: 13px;
+			margin-top: 23px;
+		}
+
+
+		/*图文轮播*/
+		#myright #login img{display:none;}
+  		.btn{border:1px solid black;width:30px;height:30px;display:inline;margin-right:5px;}
+	</style>
+
+</head>
+<body onload="switchImg()">
+	<nav>
+		<img src="images/logo.png" height="90%" style="margin-top: 5px"><span style="font-size: 40px; color: white; font-weight: bolder; text-shadow:1px 1px 1px black;"><i>战争学院议事厅</i></span>
+	</nav>
+	<div id="center">
+		<div id="box1"></div>
+		<div id="box2">
+			<div id="myleft">
+				<div id="lefttop">
+					<p style="font-size: 30px; color: yellow">活动友情链接</p>
+					<a href="#"><img src="images/myleft4.jpg" width="270px" height="120px"></a>
+					<a href="#"><img src="images/myleft5.jpg" width="180px" height="120px"></a>
+					<a href="#"><img src="images/myleft2.jpg" width="180px" height="120px"></a>
+					<a href="#"><img src="images/myleft6.jpg" width="180px" height="120px"></a>
+					<a href="#"><img src="images/myleft1.jpg" width="180px" height="120px"></a>
+					<a href="#"><img src="images/myleft3.jpg" width="270px" height="120px"></a>
+					<p style="font-size: 20px; color: yellow; margin: 10px">中职14软件1班土豪联盟官方指定论坛!</p>
+				</div>
+				<div id="leftbottom">
+					<p>沉船小队  特此鸣谢中职院14软件1班提供技术与支持 联系电话0760-88888888<br>COPYRIGHT(c) 2016-2020 中山职业技术学院</p>
+				</div>
+			</div>
+
+			<!--图片轮播-->
+			 <script>
+			  var index=1;//当前显示的图片索引(1-5)
+			  var timer;
+			  function switchImg(){
+			   // 当前这一张隐藏
+			   document.getElementById("img"+index).style.display="none";   
+			   
+			   // 如果当前显示的图片索引没有到最大值就继续增加
+			   if(index<5){index++;}
+			   // 否则从第一个图片开始显示，索引从0开始
+			   else{index=1;}
+			   // 显示第index张
+			   document.getElementById("img"+index).style.display="block";
+
+			// 下一秒,再执行本方法
+			   timer = window.setTimeout("switchImg()",5000);
+			  }
+
+			</script>
+			<div id="myright">
+				<div id="login">
+					<div style="border:1px solid black;width:400px;height:182px;">
+						<a href="#"><img id="img1" src="images/myright2.jpg" width="100%" height="100%"></a>
+						<a href="#"><img id="img2" src="images/myright1.jpg" width="100%" height="100%"></a>
+						<a href="#"><img id="img3" src="images/myright6.jpg" width="100%" height="100%"></a>
+						<a href="#"><img id="img4" src="images/myright4.jpg" width="100%" height="100%"></a>
+						<a href="#"><img id="img5" src="images/myright5.jpg" width="100%" height="100%"></a>
+					</div>
+					<form method="POST" action="index.html" id="form1" name="form1">
+						<label>用户名：</label>
+						<input type="text" name="username" id="username" placeholder="请输入账号"></input><br>
+						<label>密　码：</label>
+						<input type="password" name="pwd" id="pwd" placeholder="请输入密码"></input>
+						<input type="submit" value="登　录" onclick="return jy()" id="BtnOK"></input>
+						<p><input type="radio" id="radio" name="radio"><a href="#">我已阅读并同意《土豪联盟用户服务协议》</a></input></p>
+					</form>
+					<div id="zcyh">
+						<a href="#">找回密码</a><a href="#" onclick="zc()">注册用户</a>
+					</div>
+				</div>
+			</div>
+			<!--校验登录页面-->
+			<script type="text/javascript">
+				//页面加载完成时表单获得焦点
+				document.getElementById("username").focus();
+				function jy(){
+					var name = document.getElementById('username');
+					var password = document.getElementById('pwd');
+					var rdo = document.getElementById('radio');
+					if (name.value==''&&password.value=='') {
+						alert("用户名和密码不能为空！请输入...");
+						name.focus();
+						name.setAttribute("placeholder","请输入用户名...");
+						name.style.borderColor="red";
+						password.setAttribute("placeholder","请输入密码...");
+						password.style.borderColor="red";
+						return false;
+					}
+					else if (name.value=='') {
+						alert("用户名不能为空！请输入...");
+						name.focus();
+						document.getElementById('form1').reset();
+						name.setAttribute("placeholder","请输入用户名...");
+						name.style.borderColor="red";
+						return false;
+					}
+					else if (password.value=='') {
+						alert("密码不能为空！请输入...");
+						password.focus();
+						password.setAttribute("placeholder","请输入密码...");
+						password.style.borderColor="red";
+
+						return false;
+					}
+					else if (radio.checked==false) {
+						alert("请阅读<<土豪联盟用户服务协议书>>");
+						rdo.focus();
+						return false;
+					}
+					else {
+						return true;
+					}
+				}
+
+				//登录与注册之间的跳转
+				function zc(){
+					var my=document.getElementById('myright').style;
+					var my1=document.getElementById('myright1').style;
+					my.display="none";
+					my1.display="block";
+				}
+				function dl(){
+					var my=document.getElementById('myright').style;
+					var my1=document.getElementById('myright1').style;
+					my.display="block";
+					my1.display="none";
+				}
+			</script>
+			<div id="myright1" style="display: none;">
+				<div id="login">
+					<div id="righttop">
+						<img src="images/logo1.png" width="70%" height="80%" style="margin-top: 10px">
+					</div>
+					<form method="POST" action="index.html" id="form2" name="form2">
+						<label>　用户名：</label>
+						<input type="text" name="username1" id="username1" placeholder="用户名..."></input><span style="color: red" id="jyname"></span><br>
+						<label>　邮　箱：</label>
+						<input type="text" name="email" id="email" placeholder="邮箱..."></input><span style="color: red" id="jyemail"></span><br>
+						<label>手机号码：</label>
+						<input type="text" name="phone" id="phone" placeholder="手机号码..."></input><span style="color: red" id="jyphone"></span><br>
+						<label>　密　码：</label>
+						<input type="password" name="pwd1" id="pwd1" placeholder="密码..."></input><span style="color: red" id="jypwd"></span><br>
+						<label>确认密码：</label>
+						<input type="password" name="repwd" id="repwd" placeholder="确认密码..."></input><span style="color: red" id="jyrepwd"></span><br>
+						<input type="submit" value="注　册" onclick="return jyzc()"></input>
+					</form>
+					<div id="zcyh" style="margin-top: 20px">
+						<a href="#">不注册账号围观</a><a href="#" onclick="dl()">已有账号？前往登录...</a>
+					</div>
+				</div>
+			</div>
+			<!--校验注册页面-->
+			<script type="text/javascript">
+				function jyzc(){
+					var Name = document.getElementById('username1');
+					var Email = document.getElementById('email');
+					var Phone = document.getElementById('phone');
+					var Pwd = document.getElementById('pwd1');
+					var Repwd = document.getElementById('repwd');
+					//正则表达式验证邮箱
+					var reg=/^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}/;
+					//正则表达式验证手机号码
+					var moblie=/^(13[0-9]\d{8}|15[0-35-9]\d{8}|18[0-9]\{8}|14[57]\d{8})$/;
+
+					if (Name.value=='') {
+						alert('用户名不能为空！请输入...');
+						document.getElementById('jyname').innerHTML="*";
+						Name.focus();
+						Name.setAttribute("placeholder","请输入用户名...");
+						return false;
+					}
+					else if (Email.value=='') {
+						alert('邮箱不能为空！请输入...');
+						document.getElementById('jyemail').innerHTML="*";
+						Email.focus();
+						Email.setAttribute("placeholder","请输入邮箱...");
+						return false;
+					}
+					else if (!reg.test(Email.value))
+				    {
+				        alert('非法的电子邮件');
+				        document.getElementById('jyemail').innerHTML="*";
+						Email.focus();
+						Email.setAttribute("placeholder","请输入正确的邮箱格式...");
+				        return false;
+				    }
+					else if (Phone.value=='') {
+						alert('手机号码不能为空！请输入...');
+						document.getElementById('jyphone').innerHTML="*";
+						Phone.focus();
+						Phone.setAttribute("placeholder","请输入手机号码...");
+						return false;
+					}
+					else if (!moblie.test(Phone.value)) {
+						alert('请输入正确的手机号码');
+						document.getElementById('jyphone').innerHTML="*";
+						Phone.focus();
+						Phone.setAttribute("placeholder","请输入11位手机号码...");
+						return false;
+					}
+					else if (Pwd.value=='') {
+						alert('密码不能为空！请输入...');
+						document.getElementById('jypwd').innerHTML="*";
+						Pwd.focus();
+						Pwd.setAttribute("placeholder","请输入密码...");
+						return false;
+					}
+					else if (Pwd.value.length<6||Pwd.value.length>16) {
+						alert('密码必须为6-16位数字或字母组成！');
+						document.getElementById('jypwd').innerHTML="*";
+						document.getElementById('jyrepwd').innerHTML="*";
+						Pwd.focus();
+						Pwd.value="";
+						Repwd.value="";
+						Pwd.setAttribute("placeholder","请输入6-16位数字或字母...");
+						return false;
+					}
+					else if (Repwd.value=='') {
+						alert('确认密码不能为空！请输入...');
+						document.getElementById('jyrepwd').innerHTML="*";
+						Repwd.focus();
+						Repwd.setAttribute("placeholder","请再次输入密码...");
+						return false;
+					}
+					else if (Repwd.value!=Pwd.value) {
+						alert('两次密码输入不一致，请重新输入！');
+						document.getElementById('jypwd').innerHTML="*";
+						document.getElementById('jyrepwd').innerHTML="*";
+						Pwd.setAttribute("placeholder","请重新输入密码...");
+						Pwd.focus();
+						Pwd.value="";
+						Repwd.value="";
+						return false;
+					}
+					
+					else{
+						return true;
+					}
+				}
+			</script>
+		</div>
+		<div id="box3"></div>
+	</div>
+</body>
+</html>

@@ -172,6 +172,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="index.html" />
     <Content Include="说明+data\BBS.sql" />
     <Content Include="说明+data\项目要求.txt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

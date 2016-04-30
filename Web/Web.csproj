@@ -133,6 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ashx\" />
+    <Folder Include="css\" />
+    <Folder Include="images\" />
+    <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />

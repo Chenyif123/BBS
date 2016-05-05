@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="css\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -168,8 +170,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="index.html" />
+    <Content Include="js\login.js" />
+    <Content Include="login.html" />
     <Content Include="说明+data\BBS.sql" />
     <Content Include="说明+data\项目要求.txt" />
+    <Content Include="ashx\login.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Index1.aspx" />
     <Content Include="Index.aspx" />
@@ -235,6 +241,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ashx\login.ashx.cs">
+      <DependentUpon>login.ashx</DependentUpon>
+    </Compile>
     <Compile Include="BBSReply\Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

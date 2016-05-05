@@ -17,6 +17,11 @@ namespace BBS.BLL
 		{}
 		#region  BasicMethod
 
+        public int login(string username,string userpwd)
+        {
+            return dal.login(username, userpwd);
+        }
+
 		/// <summary>
 		/// 得到最大ID
 		/// </summary>

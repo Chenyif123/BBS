@@ -6,7 +6,7 @@
         <script type="text/javascript">
     var pageIndex = 0;     //页面索引初始值
     var pageSize = 10;     //每页显示条数初始化，修改显示条数，修改这里即可
-    $(function () {
+    $(function () { 
         InitTable(0);    //Load事件，初始化表格数据，页面索引为0（第一页）   
         //分页，PageCount是总条目数，这是必选参数，其它参数都是可选
         $("#Pagination").pagination(<%=pageCount %>, {

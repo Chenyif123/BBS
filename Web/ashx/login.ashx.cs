@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BLL
+using BBS.BLL;
+
 
 namespace Web.ashx
 {
